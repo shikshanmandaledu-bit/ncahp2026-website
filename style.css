@@ -882,3 +882,41 @@ a.logo-item:hover img{ filter:drop-shadow(0 6px 14px rgba(10,27,46,0.18)); }
 @media (hover:none){
   .tilt-card:hover::before, .tilt-card:hover::after{ opacity:0; }
 }
+/* MOBILE REGISTRATION TABLE FIX */
+@media (max-width: 600px) {
+
+  .registration-table,
+  .registration-table table {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .registration-table {
+    overflow-x: hidden !important;
+  }
+
+  .registration-table table {
+    table-layout: fixed !important;
+  }
+
+  .registration-table th,
+  .registration-table td {
+    padding: 14px 10px !important;
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .registration-table th:first-child,
+  .registration-table td:first-child {
+    width: 62% !important;
+  }
+
+  .registration-table th:not(:first-child),
+  .registration-table td:not(:first-child) {
+    width: 38% !important;
+    text-align: right !important;
+  }
+}
