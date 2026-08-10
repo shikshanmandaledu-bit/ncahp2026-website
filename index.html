@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NCAHP 2026 — National Conference on Allied Health Professions | AIIMS New Delhi</title>
+<meta name="description" content="National Conference on Allied Health Professions (NCAHP 2026) — 02 November 2026, J.L.N. Auditorium, AIIMS New Delhi. Advancing Allied Health Education, Research & Innovation for Quality Healthcare.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Tailwind (CDN, configured) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Styles -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+
+<!-- ===================== LOADING SCREEN ===================== -->
+<div id="loader">
+  <div class="loader-noise"></div>
+  <div class="loader-inner">
+    <div class="loader-pulse-wrap">
+      <span class="pulse-ring pr-1"></span>
+      <span class="pulse-ring pr-2"></span>
+      <span class="pulse-ring pr-3"></span>
+      <span class="loader-heart">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none"><path d="M12 21s-7.5-4.6-10-9.2C.4 8.1 2.4 4.5 6 4.1c2-.2 3.8.9 6 3.4 2.2-2.5 4-3.6 6-3.4 3.6.4 5.6 4 4 7.7C19.5 16.4 12 21 12 21z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      </span>
+    </div>
+    <svg class="loader-ekg" viewBox="0 0 300 60" preserveAspectRatio="none">
+      <polyline id="ekg-line" points="0,30 40,30 55,30 65,8 75,52 85,30 100,30 130,30 145,30 155,12 165,48 175,30 190,30 300,30" fill="none" stroke-width="2"/>
+    </svg>
+    <p class="loader-label">NCAHP <span>2026</span></p>
+    <p class="loader-sub" id="loader-sub">calibrating instruments</p>
+    <div class="loader-progress">
+      <div class="loader-progress-bar" id="loader-progress-bar"></div>
+      <span class="loader-progress-num" id="loader-progress-num">0%</span>
+    </div>
+  </div>
+  <div class="loader-panel loader-panel-l"></div>
+  <div class="loader-panel loader-panel-r"></div>
+</div>
+
+<!-- ===================== CURSOR FOLLOWER ===================== -->
+<div id="cursor-dot" class="cursor-dot"></div>
+<div id="cursor-ring" class="cursor-ring"></div>
+
+<!-- ===================== THREE.JS CANVAS ===================== -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- ===================== HEADER ===================== -->
+<header id="site-header" class="site-header">
+  <div class="header-inner">
+    <a href="#home" class="brand">
+      <img src="assets/logo-ncahp.jpeg" alt="NCAHP 2026 — National Conference on Allied Health Professions" class="brand-logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#committee" class="nav-link">Committee</a>
+      <a href="#speakers" class="nav-link">Speakers</a>
+      <a href="#programme" class="nav-link">Programme</a>
+      <a href="#abstract" class="nav-link">Abstract</a>
+      <a href="#registration" class="nav-link">Registration</a>
+      <a href="#awards" class="nav-link">Awards</a>
+      <a href="#sponsors" class="nav-link">Sponsors</a>
+      <a href="#gallery" class="nav-link">Gallery</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="https://forms.gle/WCGsaXMvMXKHE7xM8" target="_blank" rel="noopener" class="btn btn-primary btn-sm magnetic">
+        <span>Register Now</span>
+      </a>
+      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="header-scan"></div>
+</header>
+
+<!-- ===================== MOBILE NAV ===================== -->
+<div id="mobile-nav" class="mobile-nav">
+  <a href="#home" class="mobile-link">Home</a>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#committee" class="mobile-link">Committee</a>
+  <a href="#speakers" class="mobile-link">Speakers</a>
+  <a href="#programme" class="mobile-link">Programme</a>
+  <a href="#abstract" class="mobile-link">Abstract</a>
+  <a href="#registration" class="mobile-link">Registration</a>
+  <a href="#awards" class="mobile-link">Awards</a>
+  <a href="#sponsors" class="mobile-link">Sponsors</a>
+  <a href="#gallery" class="mobile-link">Gallery</a>
+  <a href="#faq" class="mobile-link">FAQ</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+</div>
+
+<main id="home">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-orbit hero-orbit-1"></div>
+    <div class="hero-orbit hero-orbit-2"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content" id="hero-content">
+      <p class="eyebrow reveal-up"><span class="eyebrow-dot"></span>AIIMS New Delhi &middot; Hybrid Conference &middot; 02 Nov 2026</p>
+
+      <h1 class="hero-title" id="hero-title" data-split-words>
+        <span class="line">National Conference on</span>
+        <span class="line"><em>Allied Health</em> Professions</span>
+      </h1>
+
+      <p class="hero-theme reveal-up">
+        &ldquo;Advancing Allied Health Education, Research &amp; Innovation for Quality Healthcare&rdquo;
+      </p>
+
+      <div class="hero-meta reveal-up">
+        <div class="meta-chip">
+          <span class="meta-label">Date</span>
+          <span class="meta-value">02 November 2026</span>
+        </div>
+        <div class="meta-divider"></div>
+        <div class="meta-chip">
+          <span class="meta-label">Venue</span>
+          <span class="meta-value">J.L.N. Auditorium, AIIMS, New Delhi</span>
+        </div>
+        <div class="meta-divider"></div>
+        <div class="meta-chip">
+          <span class="meta-label">Mode</span>
+          <span class="meta-value">Hybrid — Offline + Online</span>
+        </div>
+      </div>
+
+      <div class="countdown reveal-up" id="countdown">
+        <div class="cd-unit"><span class="cd-num" id="cd-days">00</span><span class="cd-label">Days</span></div>
+        <div class="cd-unit"><span class="cd-num" id="cd-hours">00</span><span class="cd-label">Hours</span></div>
+        <div class="cd-unit"><span class="cd-num" id="cd-mins">00</span><span class="cd-label">Minutes</span></div>
+        <div class="cd-unit"><span class="cd-num" id="cd-secs">00</span><span class="cd-label">Seconds</span></div>
+      </div>
+
+      <div class="hero-actions reveal-up">
+        <a href="https://forms.gle/WCGsaXMvMXKHE7xM8" target="_blank" rel="noopener" class="btn btn-primary btn-glow magnetic">Register Now</a>
+        <a href="#abstract" class="btn btn-outline magnetic">Submit Abstract</a>
+        <a href="#" class="btn btn-ghost magnetic" id="brochure-btn">
+          Download Brochure
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 13h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-cue">
+      <span>Scroll</span>
+      <div class="scroll-line"><i></i></div>
+    </div>
+  </section>
+
+  <!-- ===================== MARQUEE STRIP ===================== -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>Medical Laboratory Sciences</span><span class="dot">&bull;</span>
+      <span>Radiology &amp; Imaging Technology</span><span class="dot">&bull;</span>
+      <span>Operation Theatre Technology</span><span class="dot">&bull;</span>
+      <span>Optometry</span><span class="dot">&bull;</span>
+      <span>Physiotherapy</span><span class="dot">&bull;</span>
+      <span>Healthcare Innovation</span><span class="dot">&bull;</span>
+      <span>Medical Laboratory Sciences</span><span class="dot">&bull;</span>
+      <span>Radiology &amp; Imaging Technology</span><span class="dot">&bull;</span>
+      <span>Operation Theatre Technology</span><span class="dot">&bull;</span>
+      <span>Optometry</span><span class="dot">&bull;</span>
+      <span>Physiotherapy</span><span class="dot">&bull;</span>
+      <span>Healthcare Innovation</span><span class="dot">&bull;</span>
+    </div>
+  </div>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">01 / About</p>
+        <h2 class="section-title reveal-up">A gathering point for the people who make <span class="text-accent-blue">diagnosis, care &amp; recovery</span> possible.</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-copy reveal-up">
+          <p>NCAHP 2026 brings together researchers, faculty, students, and practising healthcare professionals working across Medical Laboratory Sciences, Radiology, Operation Theatre Technology, Optometry, and Physiotherapy — the disciplines that sit closest to the patient, and furthest from the spotlight.</p>
+          <p>Hosted at AIIMS New Delhi, the conference is built as a working day for the allied health community: peer-reviewed research, hands-on demonstrations, and direct conversation between the clinicians running today's diagnostics and the innovators building tomorrow's.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card reveal-up tilt-card">
+            <span class="stat-num" data-count="500">0</span><span class="stat-suffix">+</span>
+            <span class="stat-label">Delegates Expected</span>
+          </div>
+          <div class="stat-card reveal-up tilt-card">
+            <span class="stat-num" data-count="6">0</span>
+            <span class="stat-label">Scientific Tracks</span>
+          </div>
+          <div class="stat-card reveal-up tilt-card">
+            <span class="stat-num" data-count="15">0</span><span class="stat-suffix">+</span>
+            <span class="stat-label">Award Categories</span>
+          </div>
+          <div class="stat-card reveal-up tilt-card">
+            <span class="stat-num" data-count="1">0</span>
+            <span class="stat-label">Day, Fully Packed</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chip-row">
+        <span class="chip">Researchers</span>
+        <span class="chip">Faculty</span>
+        <span class="chip">Students</span>
+        <span class="chip">Healthcare Professionals</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HIGHLIGHTS ===================== -->
+  <section class="section section-tint" id="highlights">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">02 / Highlights</p>
+        <h2 class="section-title reveal-up">Why delegates travel for this one.</h2>
+      </div>
+
+      <div class="highlight-grid">
+        <div class="highlight-card reveal-up tilt-card">
+          <div class="hl-icon">🌐</div>
+          <h3>Eminent Speakers</h3>
+          <p>Voices from leading allied-health institutions, presenting where the field is headed.</p>
+        </div>
+        <div class="highlight-card reveal-up tilt-card">
+          <div class="hl-icon">🔬</div>
+          <h3>Research Presentations</h3>
+          <p>Original oral and poster research across every scientific track.</p>
+        </div>
+        <div class="highlight-card reveal-up tilt-card">
+          <div class="hl-icon">🏆</div>
+          <h3>Poster Competition</h3>
+          <p>Judged categories with recognition for the strongest emerging work.</p>
+        </div>
+        <div class="highlight-card reveal-up tilt-card">
+          <div class="hl-icon">🤝</div>
+          <h3>Networking</h3>
+          <p>Structured and informal time with practitioners across specialties.</p>
+        </div>
+        <div class="highlight-card reveal-up tilt-card">
+          <div class="hl-icon">🎖️</div>
+          <h3>15+ Award Categories</h3>
+          <p>Recognising research, teaching, practice and institutional excellence.</p>
+        </div>
+        <div class="highlight-card reveal-up tilt-card">
+          <div class="hl-icon">📄</div>
+          <h3>Publication Opportunities</h3>
+          <p>Pathways for accepted abstracts toward indexed publication.</p>
+        </div>
+        <div class="highlight-card reveal-up tilt-card">
+          <div class="hl-icon">📜</div>
+          <h3>Certification</h3>
+          <p>Conference certificates issued to all registered delegates.</p>
+        </div>
+        <div class="highlight-card reveal-up tilt-card">
+          <div class="hl-icon">👥</div>
+          <h3>500+ Delegates</h3>
+          <p>A full house of allied health professionals under one roof.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== IMPORTANT DATES (VERTICAL GLOW TIMELINE) ===================== -->
+  <section class="section" id="dates">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">03 / Timeline</p>
+        <h2 class="section-title reveal-up">Important dates.</h2>
+        <p class="section-sub reveal-up">Every milestone between now and the auditorium going live.</p>
+      </div>
+
+      <div class="v-timeline">
+        <div class="v-timeline-track"><div class="v-timeline-fill" id="v-timeline-fill"></div></div>
+
+        <div class="v-point reveal-up">
+          <div class="v-point-card">
+            <span class="v-point-tag">01</span>
+            <span class="v-point-date">15 Aug 2026</span>
+            <h3>Abstract Submission Opens</h3>
+            <p>Portal opens for original, unpublished research across all six tracks.</p>
+          </div>
+          <span class="v-node"><span class="v-node-core"></span><span class="v-node-glow"></span></span>
+        </div>
+
+        <div class="v-point reveal-up">
+          <div class="v-point-card">
+            <span class="v-point-tag">02</span>
+            <span class="v-point-date">10 October 2026</span>
+            <h3>Last Date for Abstract Submission</h3>
+            <p>Final window to submit a structured abstract for review.</p>
+          </div>
+          <span class="v-node"><span class="v-node-core"></span><span class="v-node-glow"></span></span>
+        </div>
+
+        <div class="v-point reveal-up">
+          <div class="v-point-card">
+            <span class="v-point-tag">03</span>
+            <span class="v-point-date">15 October 2026</span>
+            <h3>Acceptance Notification</h3>
+            <p>Authors informed of oral or poster placement.</p>
+          </div>
+          <span class="v-node"><span class="v-node-core"></span><span class="v-node-glow"></span></span>
+        </div>
+
+        <div class="v-point reveal-up">
+          <div class="v-point-card">
+            <span class="v-point-tag">04</span>
+            <span class="v-point-date">05 October 2026</span>
+            <h3>Registration Deadline</h3>
+            <p>Last date for guaranteed Standard registration pricing.</p>
+          </div>
+          <span class="v-node"><span class="v-node-core"></span><span class="v-node-glow"></span></span>
+        </div>
+
+        <div class="v-point v-point-final reveal-up">
+          <div class="v-point-card v-point-card-accent">
+            <span class="v-point-tag v-point-tag-accent">05</span>
+            <span class="v-point-date">02 Nov 2026</span>
+            <h3>Conference Day</h3>
+            <p>J.L.N. Auditorium, AIIMS New Delhi — doors open 08:00.</p>
+          </div>
+          <span class="v-node v-node-accent"><span class="v-node-core"></span><span class="v-node-glow"></span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SCIENTIFIC TRACKS ===================== -->
+  <section class="section section-tint" id="tracks">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">04 / Scientific Tracks</p>
+        <h2 class="section-title reveal-up">Six disciplines. One programme.</h2>
+      </div>
+
+      <div class="tracks-grid">
+        <div class="track-card reveal-up tilt-card">
+          <span class="track-code">TR.01</span>
+          <h3>Medical Laboratory Sciences</h3>
+          <ul>
+            <li>Clinical Biochemistry</li>
+            <li>Microbiology</li>
+            <li>Hematology</li>
+            <li>Histopathology</li>
+            <li>Blood Banking</li>
+            <li>Clinical Pathology</li>
+            <li>Molecular Diagnostics</li>
+          </ul>
+        </div>
+        <div class="track-card reveal-up tilt-card">
+          <span class="track-code">TR.02</span>
+          <h3>Radiology &amp; Imaging Technology</h3>
+          <ul>
+            <li>Digital Radiography</li>
+            <li>CT</li>
+            <li>MRI</li>
+            <li>Ultrasound</li>
+            <li>Nuclear Medicine</li>
+          </ul>
+        </div>
+        <div class="track-card reveal-up tilt-card">
+          <span class="track-code">TR.03</span>
+          <h3>Operation Theatre Technology</h3>
+          <ul>
+            <li>Surgical Technology</li>
+            <li>Sterilization</li>
+            <li>Critical Care</li>
+            <li>Anaesthesia Technology</li>
+          </ul>
+        </div>
+        <div class="track-card reveal-up tilt-card">
+          <span class="track-code">TR.04</span>
+          <h3>Optometry</h3>
+          <ul>
+            <li>Vision Sciences</li>
+            <li>Contact Lens</li>
+            <li>Low Vision</li>
+            <li>Ocular Diseases</li>
+          </ul>
+        </div>
+        <div class="track-card reveal-up tilt-card">
+          <span class="track-code">TR.05</span>
+          <h3>Physiotherapy</h3>
+          <ul>
+            <li>Orthopaedics</li>
+            <li>Sports</li>
+            <li>Neuro Rehab</li>
+            <li>Cardio Pulmonary</li>
+          </ul>
+        </div>
+        <div class="track-card reveal-up tilt-card">
+          <span class="track-code">TR.06</span>
+          <h3>Healthcare Innovation</h3>
+          <ul>
+            <li>Artificial Intelligence</li>
+            <li>Digital Health</li>
+            <li>Robotics</li>
+            <li>Automation</li>
+            <li>Biomedical Engineering</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SPEAKERS ===================== -->
+  <section class="section" id="speakers">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">05 / Speakers</p>
+        <h2 class="section-title reveal-up">Keynote speakers.</h2>
+      </div>
+    </div>
+    <div class="speaker-marquee">
+      <div class="speaker-track" id="speakers-grid"><!-- populated by script.js --></div>
+    </div>
+  </section>
+
+  <!-- ===================== PROGRAMME ===================== -->
+  <section class="section section-tint" id="programme">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">06 / Programme</p>
+        <h2 class="section-title reveal-up">The day, minute by minute.</h2>
+      </div>
+
+      <div class="programme-tabs">
+        <button class="prog-tab active" data-tab="morning">Morning Session</button>
+        <button class="prog-tab" data-tab="afternoon">Oral &amp; Poster</button>
+        <button class="prog-tab" data-tab="evening">Awards &amp; Closing</button>
+      </div>
+
+      <div class="prog-panel active" data-panel="morning">
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">08:00 – 09:00</span><span class="prog-title">Registration</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Delegate check-in, kit collection and badge printing at the J.L.N. Auditorium foyer.</p></div></div>
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">09:00 – 09:15</span><span class="prog-title">Welcome</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Delegates are seated as the hybrid broadcast goes live for online attendees.</p></div></div>
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">09:15 – 09:30</span><span class="prog-title">Lighting Ceremony</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Traditional lamp-lighting by the dais to formally open NCAHP 2026.</p></div></div>
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">09:30 – 09:40</span><span class="prog-title">Welcome Address</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Opening remarks from the Organizing Secretary framing the day's agenda.</p></div></div>
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">09:40 – 09:50</span><span class="prog-title">Presidential Address</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Address from the Conference President on the conference theme.</p></div></div>
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">09:50 – 10:05</span><span class="prog-title">Chief Patron Address</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Remarks from the Chief Patron on advancing allied health education.</p></div></div>
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">10:05 – 10:20</span><span class="prog-title">Guest of Honour</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Special address from the Guest of Honour.</p></div></div>
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">10:20 – 10:35</span><span class="prog-title">Chief Guest</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Keynote welcome from the Chief Guest, formally declaring the conference open.</p></div></div>
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">10:35 – 10:45</span><span class="prog-title">Souvenir Release</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Unveiling of the official NCAHP 2026 souvenir and abstract compendium.</p></div></div>
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">10:45 – 11:00</span><span class="prog-title">Group Photograph</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Official dais and delegate photograph on the auditorium steps.</p></div></div>
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">11:00 – 11:20</span><span class="prog-title">Scientific Session I</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>First scientific session opens, chaired by the Scientific Committee.</p></div></div>
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">11:20 – 11:40</span><span class="prog-title">Keynote Lecture I</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Speaker to be announced. Topic aligned with Healthcare Innovation track.</p></div></div>
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">11:40 – 12:00</span><span class="prog-title">Keynote Lecture II</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Speaker to be announced. Topic aligned with Radiology &amp; Imaging track.</p></div></div>
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">12:00 – 12:20</span><span class="prog-title">Keynote Lecture III</span><span class="prog-speaker">Speaker: TBA</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Full speaker details to be published as the programme is finalised.</p></div></div>
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">12:20 – 12:40</span><span class="prog-title">Keynote Lecture IV</span><span class="prog-speaker">Speaker: TBA</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Full speaker details to be published as the programme is finalised.</p></div></div>
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">12:40 – 01:00</span><span class="prog-title">Invited Lecture</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Invited lecture from a senior allied health academic.</p></div></div>
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">01:00 – 02:00</span><span class="prog-title">Panel Discussion</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Cross-disciplinary panel on the future of allied health practice in India.</p></div></div>
+        <div class="prog-item reveal-up prog-break"><button class="prog-head"><span class="prog-time">02:00 – 02:00</span><span class="prog-title">Lunch Break</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Lunch served in the exhibition hall alongside the industry showcase.</p></div></div>
+      </div>
+
+      <div class="prog-panel" data-panel="afternoon">
+        <div class="prog-block reveal-up">
+          <h4>Oral Presentations — 02:00 PM – 04:30 PM</h4>
+          <div class="prog-tags">
+            <span>Medical Laboratory Sciences</span>
+            <span>Radiology &amp; Imaging Technology</span>
+            <span>Operation Theatre Technology</span>
+            <span>Optometry</span>
+            <span>Physiotherapy</span>
+          </div>
+        </div>
+        <div class="prog-block reveal-up">
+          <h4>Poster Presentation</h4>
+          <div class="prog-tags">
+            <span>Medical Laboratory Sciences</span>
+            <span>Radiology</span>
+            <span>OTT</span>
+            <span>Optometry</span>
+            <span>Physiotherapy</span>
+            <span>Healthcare Innovation</span>
+            <span>Public Health</span>
+            <span>Clinical Research</span>
+            <span>Student Innovation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="prog-panel" data-panel="evening">
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">04:30 – 06:30 PM</span><span class="prog-title">Awards Ceremony</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>All nine award categories presented on stage — see the Awards section below.</p></div></div>
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">06:30 PM</span><span class="prog-title">Certificate Distribution</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Conference certificates issued to every registered delegate.</p></div></div>
+        <div class="prog-item reveal-up"><button class="prog-head"><span class="prog-time">06:30 PM</span><span class="prog-title">Vote of Thanks</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Closing remarks and appreciation from the Organizing Committee.</p></div></div>
+        <div class="prog-item reveal-up prog-break"><button class="prog-head"><span class="prog-time">06:30 PM</span><span class="prog-title">National Anthem &amp; Closing</span><span class="prog-plus">+</span></button><div class="prog-detail"><p>Conference formally concludes with the National Anthem.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABSTRACT SUBMISSION ===================== -->
+  <section class="section" id="abstract">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">07 / Abstract</p>
+        <h2 class="section-title reveal-up">Abstract Submission Guidelines for Paper Presentation</h2>
+      </div>
+
+      <p class="abstract-intro reveal-up">Abstracts are invited from Graduate, Postgraduate, and PhD students, as well as academicians, clinicians, and professionals.</p>
+
+      <div class="abstract-guide-grid">
+        <div class="abstract-guide-card reveal-up">
+          <h3>Submission Details</h3>
+          <ul>
+            <li>Abstract submission will commence w.e.f. 15th August 2026</li>
+            <li>The abstract must be 250–300 words in length</li>
+            <li>Typed in Times New Roman, font size 12</li>
+            <li>Submitted in Microsoft Word format (.doc or .docx)</li>
+            <li>Submissions accepted through email only</li>
+            <li>All abstracts undergo peer review by the Scientific Committee</li>
+          </ul>
+        </div>
+        <div class="abstract-guide-card reveal-up">
+          <h3>Presentation Guidelines</h3>
+          <ul>
+            <li>Only one author permitted to present the paper</li>
+            <li>Each presenter allotted 5–7 minutes for presentation</li>
+            <li>Plan for 2–3 minutes of questions</li>
+            <li>Final presentation prepared in PowerPoint (PPT) format</li>
+            <li>Slides submitted on or before 10 October 2026 via email</li>
+          </ul>
+        </div>
+        <div class="abstract-guide-card reveal-up">
+          <h3>Guidelines for Poster Presentation</h3>
+          <ul>
+            <li>Maximum size: 3 feet (width) × 4 feet (height), portrait orientation</li>
+            <li>Content should be concise, visually appealing, and easy to read</li>
+            <li>Only one student allowed to present the poster</li>
+            <li>Only the title of the topic is required for poster presentation</li>
+            <li>Send at: <a href="mailto:ncahpaiims@gmail.com">ncahpaiims@gmail.com</a></li>
+          </ul>
+        </div>
+        <div class="abstract-guide-card reveal-up">
+          <h3>Prizes</h3>
+          <p>Prizes will be awarded for the best Innovation Poster and Scientific Paper Presentation.</p>
+        </div>
+      </div>
+
+      <p class="abstract-final-note reveal-up"><strong>Final Note:</strong> Conference registration is mandatory for all presentations.</p>
+
+      <div class="abstract-email-card reveal-up">
+        <svg width="34" height="34" viewBox="0 0 20 20" fill="none"><path d="M2 5.5l8 5.5 8-5.5M2 5.5v9a1 1 0 001 1h14a1 1 0 001-1v-9M2 5.5a1 1 0 011-1h14a1 1 0 011 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="abstract-email-label">Submit your abstract by email</span>
+        <a href="mailto:ncahpaiims@gmail.com" class="abstract-email-link magnetic">ncahpaiims@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== REGISTRATION ===================== -->
+  <section class="section section-tint" id="registration">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">08 / Registration</p>
+        <h2 class="section-title reveal-up">Choose your registration category.</h2>
+      </div>
+
+      <div class="fee-table-wrap reveal-up">
+        <table class="fee-table">
+          <thead>
+            <tr>
+              <th>Registration Category</th>
+              <th>Early Bird<span>Till 05 Sep 2026</span></th>
+              <th>Standard<span>05 Sep – 05 Oct 2026</span></th>
+              <th>Late / Spot<span>From 06 Oct 2026</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Category">Student</td>
+              <td data-label="Early Bird">&#8377;800</td>
+              <td data-label="Standard">&#8377;1,000</td>
+              <td data-label="Late / Spot">&#8377;1,500</td>
+            </tr>
+            <tr>
+              <td data-label="Category">Faculty / Professional</td>
+              <td data-label="Early Bird">&#8377;1,500</td>
+              <td data-label="Standard">&#8377;2,000</td>
+              <td data-label="Late / Spot">&#8377;2,500</td>
+            </tr>
+            <tr>
+              <td data-label="Category">AIMLTA Member &amp; AIIMS Staff (Contractual &amp; Projects)</td>
+              <td data-label="Early Bird">&#8377;1,000</td>
+              <td data-label="Standard">&#8377;1,500</td>
+              <td data-label="Late / Spot">&#8377;2,000</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="fee-table-cta">
+          <a href="https://forms.gle/WCGsaXMvMXKHE7xM8" target="_blank" rel="noopener" class="btn btn-primary magnetic">Register Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== AWARDS ===================== -->
+  <section class="section" id="awards">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">09 / Awards &middot; 04:30 PM – 06:30 PM</p>
+        <h2 class="section-title reveal-up">Recognising the work behind the work.</h2>
+      </div>
+
+      <div class="awards-grid">
+        <div class="award-card reveal-up tilt-card"><span class="award-icon">📄</span><h3>Best Research Paper Award</h3></div>
+        <div class="award-card reveal-up tilt-card"><span class="award-icon">🎤</span><h3>Best Oral Presentation Award</h3></div>
+        <div class="award-card reveal-up tilt-card"><span class="award-icon">🖼️</span><h3>Best Poster Presentation Award</h3></div>
+        <div class="award-card reveal-up tilt-card"><span class="award-icon">🌟</span><h3>Young Scientist Award</h3></div>
+        <div class="award-card reveal-up tilt-card"><span class="award-icon">🌱</span><h3>Emerging Researcher Award</h3></div>
+        <div class="award-card reveal-up tilt-card"><span class="award-icon">💡</span><h3>Healthcare Innovation Award</h3></div>
+        <div class="award-card reveal-up tilt-card"><span class="award-icon">🔎</span><h3>Outstanding Researcher Award</h3></div>
+        <div class="award-card reveal-up tilt-card"><span class="award-icon">📘</span><h3>Outstanding Educator Award</h3></div>
+        <div class="award-card reveal-up tilt-card"><span class="award-icon">🎓</span><h3>Academic Excellence Award</h3></div>
+        <div class="award-card reveal-up tilt-card"><span class="award-icon">🧭</span><h3>Excellence in Academic Leadership Award</h3></div>
+        <div class="award-card reveal-up tilt-card"><span class="award-icon">⚕️</span><h3>Excellence in Healthcare Practice Award</h3></div>
+        <div class="award-card reveal-up tilt-card"><span class="award-icon">🩺</span><h3>Emerging Healthcare Professional Award</h3></div>
+        <div class="award-card reveal-up tilt-card"><span class="award-icon">🏅</span><h3>Research Excellence Award</h3></div>
+        <div class="award-card reveal-up tilt-card"><span class="award-icon">🤝</span><h3>Excellence in Interdisciplinary Healthcare Award</h3></div>
+        <div class="award-card reveal-up tilt-card"><span class="award-icon">🏆</span><h3>Outstanding Contribution to Healthcare Award</h3></div>
+        <div class="award-card reveal-up tilt-card"><span class="award-icon">🏛️</span><h3>Best Institution Award</h3></div>
+        <div class="award-card reveal-up tilt-card"><span class="award-icon">👑</span><h3>Lifetime Achievement Award</h3></div>
+      </div>
+
+      <div class="award-ceremony-cta reveal-up">
+        <div class="award-ceremony-text">
+          <h3>Award Ceremony</h3>
+          <p>Applying for one of the categories above? Submit your Award Ceremony application through the official form.</p>
+          <p class="award-ceremony-host">Hosted by Shikshan Mandal (MSME Registered)</p>
+        </div>
+        <a href="https://forms.gle/jwoSpB3MMVnfJQeM6" target="_blank" rel="noopener noreferrer" class="btn btn-primary magnetic">Apply for Award Ceremony</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SPONSORS ===================== -->
+  <section class="section section-tint" id="sponsors">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">10 / Sponsors</p>
+        <h2 class="section-title reveal-up">Partners in the programme.</h2>
+      </div>
+    </div>
+    <div class="logo-marquee">
+      <div class="logo-track" id="logo-track"><!-- populated by script.js --></div>
+    </div>
+  </section>
+
+  <!-- ===================== ORGANIZING COMMITTEE ===================== -->
+  <section class="section" id="committee">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">11 / Committee</p>
+        <h2 class="section-title reveal-up">Organizing committee.</h2>
+      </div>
+
+      <div class="committee-grid committee-grid-lead">
+        <div class="committee-card committee-lead reveal-up">
+          <div class="committee-photo"></div>
+          <h3>Chief Patron</h3>
+          <p>To Be Announced</p>
+        </div>
+        <div class="committee-card committee-lead reveal-up">
+          <div class="committee-photo"></div>
+          <h3>Patron</h3>
+          <p>To Be Announced</p>
+        </div>
+        <div class="committee-card committee-lead reveal-up">
+          <div class="committee-photo committee-photo-filled"><img src="assets/mh-khan.png" alt="Mr. M.H. Khan"></div>
+          <h3>Conference Chair</h3>
+          <p>Mr. M.H. Khan</p>
+          <p class="committee-role">President, AIMLTA Delhi</p>
+        </div>
+      </div>
+
+      <h3 class="sub-heading reveal-up">Joint Organizing Secretary</h3>
+      <div class="committee-grid committee-grid-joint">
+        <div class="committee-card committee-lead reveal-up">
+          <div class="committee-photo committee-photo-filled"><img src="assets/irshad-ahmed.png" alt="Irshad Ahmed"></div>
+          <h3>Joint Organizing Secretary</h3>
+          <p>Irshad Ahmed</p>
+          <p class="committee-role">Secretary, AIMLTA Delhi State Unit</p>
+          <p class="committee-role">MLS, Department of Biochemistry, AIIMS New Delhi</p>
+        </div>
+        <div class="committee-card committee-lead reveal-up">
+          <div class="committee-photo committee-photo-filled"><img src="assets/saksham-saxena.png" alt="Saksham Saxena"></div>
+          <h3>Joint Organizing Secretary</h3>
+          <p>Saksham Saxena</p>
+          <p class="committee-role">Assistant Secretary</p>
+          <p class="committee-role">Head, School of Paramedical Sciences, Phonics University, Roorkee</p>
+        </div>
+      </div>
+
+      <h3 class="sub-heading reveal-up">Scientific Committee</h3>
+      <div class="committee-grid committee-grid-sm">
+        <div class="committee-card reveal-up"><div class="committee-photo committee-photo-sm"></div><h3>Member</h3><p>To Be Announced</p></div>
+        <div class="committee-card reveal-up"><div class="committee-photo committee-photo-sm"></div><h3>Member</h3><p>To Be Announced</p></div>
+        <div class="committee-card reveal-up"><div class="committee-photo committee-photo-sm"></div><h3>Member</h3><p>To Be Announced</p></div>
+        <div class="committee-card reveal-up"><div class="committee-photo committee-photo-sm"></div><h3>Member</h3><p>To Be Announced</p></div>
+        <div class="committee-card reveal-up"><div class="committee-photo committee-photo-sm"></div><h3>Member</h3><p>To Be Announced</p></div>
+        <div class="committee-card reveal-up"><div class="committee-photo committee-photo-sm"></div><h3>Member</h3><p>To Be Announced</p></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="section-head">
+        <h3 class="sub-heading reveal-up exec-heading">AIMLTA Executive Committee</h3>
+      </div>
+    </div>
+    <div class="exec-marquee">
+      <div class="exec-track" id="exec-track"><!-- populated by script.js --></div>
+    </div>
+  </section>
+
+  <!-- ===================== AIMLTACON 2024 MOMENTS ===================== -->
+  <section class="section section-tint" id="gallery">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">12 / Gallery</p>
+        <h2 class="section-title reveal-up">AIMLTACON 2024 Conference Moments</h2>
+        <p class="moments-subtitle">AIIMS New Delhi</p>
+      </div>
+      <div class="moments-carousel" id="moments-carousel">
+        <div class="moments-track" id="moments-track"><!-- populated by script.js --></div>
+        <button class="moments-nav moments-prev" id="moments-prev" aria-label="Previous photo">&#8249;</button>
+        <button class="moments-nav moments-next" id="moments-next" aria-label="Next photo">&#8250;</button>
+        <div class="moments-dots" id="moments-dots"><!-- populated by script.js --></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">13 / FAQ</p>
+        <h2 class="section-title reveal-up">Frequently asked questions.</h2>
+      </div>
+
+      <div class="accordion" id="accordion">
+        <div class="acc-item reveal-up">
+          <button class="acc-head">
+            <span>Who should attend NCAHP 2026?</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-body"><p>Researchers, faculty, students and practising professionals across Medical Laboratory Sciences, Radiology, Operation Theatre Technology, Optometry and Physiotherapy are all welcome.</p></div>
+        </div>
+        <div class="acc-item reveal-up">
+          <button class="acc-head">
+            <span>Is online participation available?</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-body"><p>Yes. NCAHP 2026 is a hybrid conference — attend in person at AIIMS New Delhi or join scientific sessions online.</p></div>
+        </div>
+        <div class="acc-item reveal-up">
+          <button class="acc-head">
+            <span>What is the abstract word limit?</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-body"><p>Abstracts should not exceed 300 words, excluding the title and author list, submitted as a structured PDF.</p></div>
+        </div>
+        <div class="acc-item reveal-up">
+          <button class="acc-head">
+            <span>Will certificates be provided?</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-body"><p>Yes, all registered delegates receive a conference certificate at the closing ceremony.</p></div>
+        </div>
+        <div class="acc-item reveal-up">
+          <button class="acc-head">
+            <span>Can I register on the day of the event?</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-body"><p>Spot registration is subject to availability. Advance registration before 05 October 2026 is strongly recommended.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXPLORE DELHI ===================== -->
+  <section class="section section-tint" id="explore-delhi">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">Explore Delhi</p>
+        <h2 class="section-title reveal-up">While you're in the capital.</h2>
+      </div>
+    </div>
+    <div class="delhi-scroller" id="delhi-scroller"><!-- populated by script.js --></div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section section-tint" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">14 / Contact</p>
+        <h2 class="section-title reveal-up">Get in touch.</h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal-up">
+          <div class="contact-row">
+            <span class="contact-ico">✉️</span>
+            <div><span class="contact-label">Email</span><span class="contact-value"><a href="mailto:ncahpaiims@gmail.com">ncahpaiims@gmail.com</a></span></div>
+          </div>
+          <div class="contact-row">
+            <span class="contact-ico">📞</span>
+            <div><span class="contact-label">Phone</span><span class="contact-value"><a href="tel:+917291045130">7291045130</a>, <a href="tel:+918860086062">8860086062</a></span></div>
+          </div>
+          <div class="contact-row">
+            <span class="contact-ico">📍</span>
+            <div><span class="contact-label">Venue</span><span class="contact-value">J.L.N. Auditorium, AIIMS, New Delhi</span></div>
+          </div>
+        </div>
+        <div class="contact-map reveal-up">
+          <iframe title="AIIMS New Delhi map" src="https://www.google.com/maps?q=AIIMS%20New%20Delhi&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <span class="brand-text"><strong>NCAHP</strong><em>2026</em></span>
+      <p>National Conference on Allied Health Professions<br>AIIMS, New Delhi &middot; 02 November 2026</p>
+    </div>
+
+    <div class="footer-links">
+      <div>
+        <h4>Conference</h4>
+        <a href="#about">About</a>
+        <a href="#programme">Programme</a>
+        <a href="#speakers">Speakers</a>
+        <a href="#tracks">Tracks</a>
+      </div>
+      <div>
+        <h4>Participate</h4>
+        <a href="#abstract">Submit Abstract</a>
+        <a href="#registration">Registration</a>
+        <a href="#awards">Awards</a>
+        <a href="#sponsors">Sponsors</a>
+      </div>
+      <div>
+        <h4>Info</h4>
+        <a href="#committee">Committee</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>&copy; 2026 National Conference on Allied Health Professions. All rights reserved.</p>
+    <p>Organized in association with AIIMS, New Delhi.</p>
+  </div>
+</footer>
+
+<!-- ===================== LIGHTBOX ===================== -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">&times;</button>
+  <div class="lightbox-inner" id="lightbox-inner"></div>
+</div>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
