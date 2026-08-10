@@ -920,3 +920,295 @@ a.logo-item:hover img{ filter:drop-shadow(0 6px 14px rgba(10,27,46,0.18)); }
     text-align: right !important;
   }
 }
+/* =========================================================
+   NCAHP 2026 — FINAL VISUAL STYLE UPDATE
+   ========================================================= */
+
+/* ---------- ALL MAIN SECTION HEADINGS ---------- */
+
+main .section-title,
+main .sub-heading {
+  color: #0057B8 !important;
+  font-weight: 800 !important;
+}
+
+main .kicker {
+  color: #0057B8 !important;
+  font-weight: 700 !important;
+}
+
+/* ---------- GENERAL MAIN CONTENT TEXT BLACK ---------- */
+
+main p,
+main li,
+main .section-sub,
+main .about-copy p,
+main .stat-label,
+main .track-card li,
+main .prog-title,
+main .prog-speaker,
+main .prog-detail p,
+main .abstract-intro,
+main .abstract-guide-card li,
+main .abstract-guide-card p,
+main .abstract-final-note,
+main .abstract-email-label,
+main .contact-label,
+main .contact-value,
+main .delhi-card p {
+  color: #000000 !important;
+}
+
+
+/* =========================================================
+   IMPORTANT DATES / TIMELINE
+   ========================================================= */
+
+/* Blue filled timeline boxes */
+.v-point-card {
+  background: linear-gradient(135deg, #0057B8, #00AEEF) !important;
+  border: 1px solid #0057B8 !important;
+  color: #ffffff !important;
+  box-shadow: 0 12px 35px rgba(0,87,184,0.18) !important;
+}
+
+/* Important dates — BIG, BOLD, BLACK */
+.v-point-date {
+  color: #000000 !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  letter-spacing: .03em !important;
+}
+
+/* Timeline event titles */
+.v-point-card h3 {
+  color: #ffffff !important;
+  font-size: 21px !important;
+  font-weight: 800 !important;
+}
+
+/* Timeline descriptions */
+.v-point-card p {
+  color: #ffffff !important;
+  font-size: 14.5px !important;
+  font-weight: 500 !important;
+}
+
+/* Timeline number badges */
+.v-point-tag {
+  color: #ffffff !important;
+  border-color: rgba(255,255,255,.65) !important;
+  background: rgba(255,255,255,.12) !important;
+  font-weight: 700 !important;
+}
+
+.v-point-tag-accent {
+  color: #000000 !important;
+  background: #FFD54F !important;
+  border-color: #FFD54F !important;
+}
+
+
+/* =========================================================
+   SIX SCIENTIFIC DISCIPLINES / TRACKS
+   ========================================================= */
+
+.track-card h3 {
+  color: #0057B8 !important;
+  font-size: 21px !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  margin-bottom: 18px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 2px solid rgba(0,87,184,.15) !important;
+}
+
+.track-code {
+  color: #00AEEF !important;
+  font-weight: 700 !important;
+}
+
+.track-card li {
+  color: #000000 !important;
+  font-weight: 500 !important;
+}
+
+
+/* =========================================================
+   ORGANIZING COMMITTEE
+   ========================================================= */
+
+/* Designation / position */
+.committee-card h3 {
+  color: #000000 !important;
+  font-size: 15.5px !important;
+  font-weight: 700 !important;
+}
+
+/* Person name */
+.committee-card > p:not(.committee-role) {
+  color: #0057B8 !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+}
+
+/* Affiliation / designation details */
+.committee-card .committee-role {
+  color: #000000 !important;
+  opacity: 1 !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+}
+
+
+/* =========================================================
+   AIMLTA EXECUTIVE COMMITTEE
+   ========================================================= */
+
+.exec-heading {
+  color: #0057B8 !important;
+  font-size: 24px !important;
+  font-weight: 800 !important;
+}
+
+/* Executive member names */
+.exec-card h3 {
+  color: #0057B8 !important;
+  font-size: 17px !important;
+  font-weight: 800 !important;
+  line-height: 1.3 !important;
+}
+
+/* Executive designations */
+.exec-card p {
+  color: #000000 !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  line-height: 1.45 !important;
+}
+
+
+/* =========================================================
+   OTHER HEADINGS
+   ========================================================= */
+
+.highlight-card h3,
+.abstract-guide-card h3,
+.prog-block h4,
+.award-card h3,
+.delhi-card h3 {
+  color: #0057B8 !important;
+  font-weight: 800 !important;
+}
+
+
+/* =========================================================
+   PROGRAMME — TIME / IMPORTANT SCHEDULE
+   ========================================================= */
+
+.prog-time {
+  color: #000000 !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+}
+
+.prog-title {
+  color: #000000 !important;
+  font-weight: 700 !important;
+}
+
+.prog-speaker {
+  color: #000000 !important;
+}
+
+
+/* =========================================================
+   REGISTRATION TABLE — MOBILE FIX
+   ========================================================= */
+
+@media (max-width:680px) {
+
+  .fee-table-wrap {
+    width: 100% !important;
+    overflow: visible !important;
+  }
+
+  .fee-table {
+    width: 100% !important;
+  }
+
+  .fee-table tr {
+    width: 100% !important;
+    margin-bottom: 16px !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+    background: #ffffff !important;
+    box-shadow: 0 8px 24px rgba(0,87,184,.08) !important;
+  }
+
+  .fee-table td {
+    min-height: 54px !important;
+    padding: 14px 16px !important;
+    gap: 14px !important;
+    font-size: 14px !important;
+  }
+
+  .fee-table td::before {
+    color: #000000 !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    flex: 0 0 42% !important;
+  }
+
+  .fee-table td {
+    color: #000000 !important;
+    font-weight: 700 !important;
+  }
+
+  .fee-table td:first-child {
+    color: #0057B8 !important;
+    font-size: 16px !important;
+    font-weight: 800 !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE COMMITTEE / EXECUTIVE
+   ========================================================= */
+
+@media (max-width:680px) {
+
+  .committee-card > p:not(.committee-role) {
+    font-size: 15px !important;
+  }
+
+  .committee-card .committee-role {
+    font-size: 12px !important;
+  }
+
+  .exec-heading {
+    font-size: 21px !important;
+  }
+
+  .exec-card h3 {
+    font-size: 16px !important;
+  }
+
+  .exec-card p {
+    font-size: 13px !important;
+  }
+
+  .track-card h3 {
+    font-size: 20px !important;
+  }
+
+  .v-point-date {
+    font-size: 15px !important;
+  }
+
+  .v-point-card h3 {
+    font-size: 19px !important;
+  }
+}
