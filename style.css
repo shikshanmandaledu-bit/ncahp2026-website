@@ -1212,3 +1212,244 @@ main .delhi-card p {
     font-size: 19px !important;
   }
 }
+/* =========================================================
+   NCAHP 2026 FINAL VISUAL UPDATE
+   ========================================================= */
+
+/* ---------- ALL SECTION HEADINGS BLUE ---------- */
+.section-title,
+.kicker,
+.section-head h2,
+.section-head p {
+  color: #0057B8 !important;
+}
+
+/* ---------- GENERAL BODY TEXT BLACK ---------- */
+body,
+.section-sub,
+.about-copy p,
+.stat-label,
+.track-card li,
+.committee-card p,
+.committee-card .committee-role,
+.exec-card p,
+.v-point-card p {
+  color: #000000 !important;
+}
+
+/* ---------- MARQUEE / BLACK STRIP ---------- */
+.marquee-strip {
+  background: #07182B !important;
+  color: #FFFFFF !important;
+}
+
+.marquee-track,
+.marquee-track span {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+.marquee-track .dot {
+  color: #FFFFFF !important;
+  font-weight: 900 !important;
+}
+
+/* ---------- IMPORTANT DATES / TIMELINE ---------- */
+
+/* Date itself */
+.v-point-date {
+  color: #000000 !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+}
+
+/* Timeline heading */
+.v-point-card h3 {
+  color: #000000 !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+}
+
+/* Timeline description */
+.v-point-card p {
+  color: #000000 !important;
+  font-size: 15px !important;
+}
+
+/* Timeline number */
+.v-point-tag {
+  color: #000000 !important;
+  font-weight: 800 !important;
+}
+
+/* Fill timeline boxes with blue */
+.v-point-card {
+  background: linear-gradient(135deg, #0057B8, #008FE5) !important;
+  border-color: #0057B8 !important;
+  color: #FFFFFF !important;
+}
+
+/* Everything inside timeline card becomes white */
+.v-point-card,
+.v-point-card h3,
+.v-point-card p,
+.v-point-card .v-point-date,
+.v-point-card .v-point-tag {
+  color: #FFFFFF !important;
+}
+
+/* Final conference card */
+.v-point-card-accent {
+  background: linear-gradient(135deg, #003F88, #007BCE) !important;
+}
+
+/* Timeline nodes / blue dots become white */
+.v-node,
+.v-node-core,
+.v-node-glow {
+  border-color: #FFFFFF !important;
+}
+
+.v-node-core {
+  background: #FFFFFF !important;
+}
+
+.v-node-glow {
+  background: rgba(255,255,255,0.35) !important;
+}
+
+/* ---------- SIX SCIENTIFIC DISCIPLINES ---------- */
+
+.track-card h3 {
+  color: #0057B8 !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+}
+
+.track-card li {
+  color: #000000 !important;
+  font-weight: 500 !important;
+}
+
+/* Track code */
+.track-code {
+  color: #0057B8 !important;
+  font-weight: 800 !important;
+}
+
+/* ---------- ABOUT CHIPS ----------
+   Researchers / Faculty / Students / Healthcare Professionals
+*/
+.chip-row {
+  gap: 12px !important;
+}
+
+.chip-row .chip {
+  background: linear-gradient(135deg, #0057B8, #008FE5) !important;
+  color: #FFFFFF !important;
+  border: 1px solid #0057B8 !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  padding: 12px 20px !important;
+  border-radius: 999px !important;
+  box-shadow: 0 6px 18px rgba(0,87,184,0.18) !important;
+}
+
+.chip-row .chip::before,
+.chip-row .chip::after {
+  background: #FFFFFF !important;
+  color: #FFFFFF !important;
+}
+
+/* ---------- ORGANISING COMMITTEE ---------- */
+
+/* Names */
+.committee-card h3 {
+  color: #0057B8 !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+}
+
+/* Designation + affiliation */
+.committee-card p,
+.committee-card .committee-role {
+  color: #000000 !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
+
+/* ---------- AIMLTA EXECUTIVE COMMITTEE ---------- */
+
+.exec-heading {
+  color: #0057B8 !important;
+  font-weight: 800 !important;
+}
+
+.exec-card h3 {
+  color: #0057B8 !important;
+  font-size: 17px !important;
+  font-weight: 800 !important;
+}
+
+.exec-card p {
+  color: #000000 !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  line-height: 1.5 !important;
+}
+
+/* ---------- PROGRAMME / OTHER BLUE HEADINGS ---------- */
+
+.prog-panel h3,
+.prog-panel h2,
+.prog-panel .prog-title {
+  color: #0057B8 !important;
+  font-weight: 800 !important;
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 680px) {
+
+  .track-card h3 {
+    font-size: 20px !important;
+  }
+
+  .v-point-date {
+    font-size: 17px !important;
+  }
+
+  .v-point-card h3 {
+    font-size: 19px !important;
+  }
+
+  .v-point-card p {
+    font-size: 14px !important;
+  }
+
+  .chip-row {
+    gap: 10px !important;
+  }
+
+  .chip-row .chip {
+    font-size: 15px !important;
+    padding: 11px 16px !important;
+  }
+
+  .committee-card h3 {
+    font-size: 18px !important;
+  }
+
+  .committee-card p,
+  .committee-card .committee-role {
+    font-size: 14px !important;
+  }
+
+  .exec-card h3 {
+    font-size: 16px !important;
+  }
+
+  .exec-card p {
+    font-size: 13px !important;
+  }
+}
